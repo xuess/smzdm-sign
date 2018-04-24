@@ -76,7 +76,14 @@ node smzdm.js
 #或
 npm run dev
 
+#后台运行执行脚本
+nohup node smzdm.js &
+
+#或
+nohup npm run dev &
+
 #可安装 pm2，只用pm2启动
+
 
 ```
 
