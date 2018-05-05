@@ -17,7 +17,7 @@
 >
 
 
-## 项目的配置与运行
+# 项目的配置与运行
 
 需要准备
 
@@ -28,7 +28,7 @@
 
 
 
-### 获取什么值得买`cookie`方法
+## 获取什么值得买`cookie`方法
 
 * 1.首先 使用`chrome浏览器`，访问 `什么值得买pc端`， 登陆 `什么值得买` 账号
 * 2.打开`开发者工具`, `win`系统 快捷键 `F12` ，`mac` 快捷键 `option + command + i`
@@ -40,7 +40,7 @@
 ![](img/smzdm-cookie.png)
 
 
-### 填写cookie信息
+## 填写cookie信息
 
 打开项目文件 `config.js` ，找到`cookie`
 
@@ -64,7 +64,7 @@
 
 ![](img/config.png)
 
-### 运行 
+## 运行 
 
 ```bash
 # 先安装依赖 文件
@@ -107,7 +107,7 @@ pm2 logs
 > 关于`pm2`的详细使用介绍请看  --> [https://www.xueshanshan.top/post/node-npm-pm2.html](https://www.xueshanshan.top/post/node-npm-pm2.html)
 
 
-### 定时邮件 发送效果
+## 定时邮件 发送效果
 
 ![](img/email.png) 
 
