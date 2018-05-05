@@ -82,14 +82,29 @@ nohup node smzdm.js &
 #或
 nohup npm run dev &
 
-#可安装 pm2，只用pm2启动
+```
 
+### 如果需要长时间运行 请用`pm2进程管理工具`
+
+```bash
+#全局安装pm2
+npm i pm2 -g 
+
+#启动签到进程
+pm2 start smzdm.js
+
+#显示所有进程状态
+pm2 list 
+
+#监视所有进程
+pm2 monit              
+
+#显示所有进程日志
+pm2 logs
 
 ```
 
-
-
-
+> 关于`pm2`的详细使用介绍请看  --> [https://www.xueshanshan.top/post/node-npm-pm2.html](https://www.xueshanshan.top/post/node-npm-pm2.html)
 
 
 ### 定时邮件 发送效果
