@@ -25,8 +25,8 @@ const cookieListValKey = [
 //回复列表 用于发表评论的内容
 let commitList = [
 	'这个价可以入手吗 字数',
-	'这个价可以入手吗 字数',
-	'这个价可以入手吗 字数',
+	'感谢爆料，很不错',
+	'这可以入手吗，有解毒吗？',
 ];
 
 module.exports = {
