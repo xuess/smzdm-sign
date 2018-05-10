@@ -57,7 +57,7 @@ let getPostID = (url, refererUrl, cookieSess = '') => {
 			} catch(error) {
 				console.log(error);
 				//发邮件
-				mailSend('什么值得买获取文章列表报错', new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 错误内容：' + ascii2native(error));
+				mailSend('什么值得买获取【文章列表报错】', `时间: ${new Date().Format("yyyy-MM-dd hh:mm:ss")}  <br/>错误内容: ${ascii2native(error)}`);
 			} finally {}
 		}
 		request(options, cookie, referer);
@@ -71,6 +71,7 @@ let getPostID = (url, refererUrl, cookieSess = '') => {
 let smzdmCommit = (cookieSess) => {
 	//	let num = Math.floor(Math.random() * 900);
 	let cookie = cookieSess.cookies;
+	let cookieName = cookieSess.username;
 	let referer = 'https://zhiyou.smzdm.com/user/submit/';
 	let options = {
 		url: 'https://zhiyou.smzdm.com/user/comment/ajax_set_comment?callback=jQuery111006551744323225079_' + new Date().getTime() + '&type=3&pid=' + postIdList[Math.floor(Math.random() * postIdList.length)] + '&parentid=0&vote_id=0&vote_type=&vote_group=&content=' + encodeURI(commitList[Math.floor(Math.random() * commitList.length)]) + '&_=' + new Date().getTime(),
@@ -95,13 +96,13 @@ let smzdmCommit = (cookieSess) => {
 					logoInfoCommit.push(logInfo);
 				} else {
 					//发邮件
-					mailSend('什么值得买发送评论报错', new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 错误内容：' + ascii2native(data));
+					mailSend('什么值得买发送【评论报错】' ,`时间: ${new Date().Format("yyyy-MM-dd hh:mm:ss")}  <br/>用户: ${cookieName} <br/>错误内容: ${ascii2native(data)}`);
 				}
 
 			} catch(error) {
 				console.log(error);
 				//发邮件
-				mailSend('什么值得买发送评论报错', new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 错误内容：' + ascii2native(error));
+				mailSend('什么值得买发送【评论报错】' ,`时间: ${new Date().Format("yyyy-MM-dd hh:mm:ss")}  <br/>用户: ${cookieName} <br/>错误内容: ${ascii2native(error)}`);
 			} finally {}
 
 		}
@@ -115,6 +116,7 @@ let smzdmCommit = (cookieSess) => {
  */
 let smzdmSign = (cookieSess) => {
 	let cookie = cookieSess.cookies;
+	let cookieName = cookieSess.username;
 	let referer = 'http://www.smzdm.com/qiandao/';
 	let options = {
 		url: 'https://zhiyou.smzdm.com/user/checkin/jsonp_checkin?callback=jQuery112409568846254764496_' + new Date().getTime() + '&_=' + new Date().getTime(),
@@ -137,12 +139,12 @@ let smzdmSign = (cookieSess) => {
 					logoInfoSign.push(logInfo);
 				} else {
 					//发邮件
-					mailSend('什么值得买签到报错', new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 错误内容：' + ascii2native(data));
+					mailSend('什么值得买【签到报错】', `时间: ${new Date().Format("yyyy-MM-dd hh:mm:ss")}  <br/>用户: ${cookieName} <br/>错误内容: ${ascii2native(data)}`);
 				}
 			} catch(error) {
 				console.log(error);
 				//发邮件
-				mailSend('什么值得买签到报错', new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 错误内容：' + ascii2native(error));
+				mailSend('什么值得买【签到报错】', `时间: ${new Date().Format("yyyy-MM-dd hh:mm:ss")}  <br/>用户: ${cookieName} <br/>错误内容: ${ascii2native(error)}`);
 			} finally {}
 		}
 		request(options, cookie, referer);
@@ -201,9 +203,7 @@ schedule.scheduleJob('30 10 6 * * *', () => {
 //每天17点30 发邮件
 schedule.scheduleJob('30 30 17 * * *', () => {
 	try {
-		let info = '评论信息: ' + JSON.stringify(logoInfoCommit) + ' ,  ------- 签到信息:' + JSON.stringify(logoInfoSign);
-		//发邮件
-
+		// 拼接 html 内容，发邮件
 		let html = '<style type="text/css">		body{font:normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;color:#4f6b72;background:#E6EAE9}a{color:#c75f3e}#mytable{width:700px;padding:0;margin:0}caption{padding:0 0 5px 0;width:700px;font:italic 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;text-align:right}th{font:bold 11px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;color:#4f6b72;border-right:1px solid #C1DAD7;border-bottom:1px solid #C1DAD7;border-top:1px solid #C1DAD7;letter-spacing:2px;text-transform:uppercase;text-align:left;padding:6px 6px 6px 12px;background:#CAE8EA url(images/bg_header.jpg) no-repeat}th.nobg{border-top:0;border-left:0;border-right:1px solid #C1DAD7;background:none}td{border-right:1px solid #C1DAD7;border-bottom:1px solid #C1DAD7;background:#fff;font-size:11px;padding:6px 6px 6px 12px;color:#4f6b72}td.alt{background:#F5FAFA;color:#797268}th.spec{border-left:1px solid #C1DAD7;border-top:0;background:#fff url(images/bullet1.gif) no-repeat;font:bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif}th.specalt{border-left:1px solid #C1DAD7;border-top:0;background:#f5fafa url(images/bullet2.gif) no-repeat;font:bold 10px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;color:#797268}html>body td{font-size:11px}</style>';
 		html += `<h2>签到数据列表:</h2>
 					<table id="mytable" cellspacing="0" border="1" bordercolor="#C1DAD7">
@@ -271,7 +271,7 @@ schedule.scheduleJob('30 30 17 * * *', () => {
 		html += `</table>`;
 
 		//发邮件
-		mailSend(new Date().Format("yyyy-MM-dd") + '什么值得买签到评论日志', html);
+		mailSend(${new Date().Format("yyyy-MM-dd")} + '什么值得买签到评论日志', html);
 
 	} catch(error) {
 		console.log(error);
