@@ -224,6 +224,8 @@ schedule.scheduleJob('30 30 17 * * *', () => {
 //获取最新 待评论的 文章id
 getPostID(getCommitUrl(), 'https://www.smzdm.com/jingxuan/');
 
+
+//TODO 此处测试，可以删掉
 for(let i = 0; i < cookieListValKey.length; i++) {
 	let cookieSess = cookieListValKey[i];
 	//延迟签到
