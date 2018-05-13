@@ -1,6 +1,6 @@
 {
   "name": "smzdm-sign",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "什么值得买自动签到，自动发表评论，自动发送签到结果邮件",
   "main": "index.js",
   "scripts": {
@@ -13,7 +13,9 @@
   ],
   "author": "xuess <wuniu2010@126.com>",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "ejs": "^2.6.1"
+  },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
     "moment": "^2.22.1",
