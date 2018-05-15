@@ -44,6 +44,14 @@
 
 打开项目文件 `config.js` ，找到`cookie`
 
+> 别忘记填**邮箱信息**和**评论列表** 等其他信息
+
+如图：
+
+![](img/config.png)
+
+## 配置多账号
+
 > 如配置多个账号，请复制下面代码格式，填写多个。
 
 
@@ -53,16 +61,33 @@
 		'phone': '非必填，用户发送邮件展示',
 		'cookies': '必填，取自用户登录后的cookie，获取方法见说明文档'
 	},
+```
+
+编辑完成后，如下即可。
+
+```javascript
+//用于签到的 账号信息 列表
+const cookieListValKey = [
+	{
+		'username': '用户名1',
+		'phone': '手机1',
+		'cookies': 'cookie1'
+	},
+	{
+		'username': '用户名2',
+		'phone': '手机2',
+		'cookies': 'cookie2'
+	},
+	{
+		'username': '用户名3',
+		'phone': '手机3',
+		'cookies': 'cookie3'
+	},
+];
 
 ```
 
 
-> 别忘记填**邮箱信息**和**评论列表**
-
-
-如图：
-
-![](img/config.png)
 
 ## 运行 
 
