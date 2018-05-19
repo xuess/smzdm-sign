@@ -129,7 +129,7 @@ pm2 logs
 
 ```
 
-> 关于`pm2`的详细使用介绍请看  --> [https://www.xueshanshan.top/post/node-npm-pm2.html](https://www.xueshanshan.top/post/node-npm-pm2.html)
+> 关于`pm2`的详细使用介绍请看  --> [https://www.xueshanshan.com/post/node-npm-pm2.html](https://www.xueshanshan.top/post/node-npm-pm2.html)
 
 
 ## 定时邮件 发送效果
