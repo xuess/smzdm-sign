@@ -46,15 +46,19 @@ let getPostID = (url, refererUrl, cookieSess = '') => {
 	}
 	new Promise(function(resolve, reject) {
 		options.callback = function(data, _setCookie) {
-			//清空
-			postIdList = [];
+			//临时列表
+			let tempPostIdList = [];
 			try {
 				let $ = cheerio.load(data);
 				$('.feed-ver-pic').each(function(i, e) {
 					let href = $(e).find('a').eq(0).attr('href');
-					postIdList.push(href.substring(href.indexOf('/p/') + 3, href.length - 1));
+					tempPostIdList.push(href.substring(href.indexOf('/p/') + 3, href.length - 1));
 				});
-				console.log(new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 新文章列表：', postIdList);
+				console.log(new Date().Format("yyyy-MM-dd hh:mm:ss") + ' --- 新文章列表：', tempPostIdList);
+				//获取新列表，再更新，否则不更新
+				if(tempPostIdList.length > 0){
+					postIdList = tempPostIdList;
+				}
 			} catch(error) {
 				console.log(error);
 				//发邮件
