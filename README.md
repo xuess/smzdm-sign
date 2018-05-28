@@ -50,6 +50,24 @@
 
 ![](img/config.png)
 
+## 关于配置邮箱
+
+本项目使用的是  `nodemailer` 发送邮件，如遇问题，可以搜索此关键字。
+
+本项目中给的是`qq邮箱`，其他邮箱也是可以的。
+
+👇给出其他邮件配置信息，可以参考一下。
+
+```
+// 邮箱支持列表
+https://nodemailer.com/smtp/well-known/ 
+// 邮箱配置信息 列表
+https://github.com/nodemailer/nodemailer-wellknown/blob/master/services.json
+```
+
+> 注意邮箱要开启 POP3/SMTP/IMAP服务，由于第三方登陆，有些需要配置签名或授权码，登陆密码为设置的签名或授权码。
+
+
 ## 配置多账号
 
 > 如配置多个账号，请复制下面代码格式，填写多个。
