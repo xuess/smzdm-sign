@@ -20,7 +20,7 @@ let logoInfoCommit = [];
 let logoInfoSign = [];
 
 //文章列表 默认
-let postIdList = [];
+let postIdList = [ '9350354',  '9328133',  '9328024',  '9350282',  '9350254',  '9328044',  '9350219',  '9350181',  '9350166',  '9343266',  '9350093',  '9350065',  '9350031',  '9349991',  '9349977',  '9349974',  '9349943',  '9349901',  '9349892',  '9349732' ];
 
 //评论地址 
 //家居生活 发现频道 300 - 550 页 随机页数
@@ -78,8 +78,9 @@ let smzdmCommit = (cookieSess) => {
 	let cookie = cookieSess.cookies;
 	let cookieName = cookieSess.username;
 	let referer = 'https://zhiyou.smzdm.com/user/submit/';
+	let pId = postIdList[Math.floor(Math.random() * postIdList.length)];
 	let options = {
-		url: 'https://zhiyou.smzdm.com/user/comment/ajax_set_comment?callback=jQuery111006551744323225079_' + new Date().getTime() + '&type=3&pid=' + postIdList[Math.floor(Math.random() * postIdList.length)] + '&parentid=0&vote_id=0&vote_type=&vote_group=&content=' + encodeURI(commitList[Math.floor(Math.random() * commitList.length)]) + '&_=' + new Date().getTime(),
+		url: 'https://zhiyou.smzdm.com/user/comment/ajax_set_comment?callback=jQuery111006551744323225079_' + new Date().getTime() + '&type=3&pid=' + pId + '&parentid=0&vote_id=0&vote_type=&vote_group=&content=' + encodeURI(commitList[Math.floor(Math.random() * commitList.length)]) + '&_=' + new Date().getTime(),
 		type: 'GET'
 	}
 
@@ -98,6 +99,7 @@ let smzdmCommit = (cookieSess) => {
 					logInfo.data = ascii2native(data);
 					let logJson = JSON.parse(`{${data.substring(data.indexOf('"error_msg"')+13,data.indexOf('"head"')-1)}}`)
 					logInfo.jsonData = logJson;
+					logInfo.pId = pId;
 					logoInfoCommit.push(logInfo);
 				} else {
 					//发邮件
