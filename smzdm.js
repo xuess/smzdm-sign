@@ -194,8 +194,8 @@ let commitSettimeout = (cookieSess, timeNum = 1) => {
 
 }
 
-//每天6点10执行 签到和评论
-schedule.scheduleJob('30 10 6 * * *', () => {
+//每天5点10执行 签到和评论
+schedule.scheduleJob('30 10 5 * * *', () => {
 	//发现频道 最新
 	getPostID(getCommitUrl(), 'https://www.smzdm.com/jingxuan/');
 	for(let i = 0; i < cookieListValKey.length; i++) {
