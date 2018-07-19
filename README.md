@@ -15,7 +15,7 @@
 >
 >喜欢请`star`，有不明白的地方，欢迎提问
 >
-
+> 京东、苏宁自动签到项目：[https://github.com/xuess/nightmare-sign](https://github.com/xuess/nightmare-sign)
 
 # 项目的配置与运行
 
