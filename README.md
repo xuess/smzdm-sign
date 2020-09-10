@@ -1,9 +1,13 @@
+
+> 2020年09月09日
+>
+> 新增一个基于谷歌无头浏览器实现的签到工程，支持smzdm签到。完全模拟人工点击。欢迎尝试。
+>
+> 地址：[https://github.com/xuess/puppeteer-sign](https://github.com/xuess/puppeteer-sign)
+
+
+
 ```
-2020年09月09日
-新增一个基于谷歌无头浏览器实现的签到工程，支持smzdm签到。完全模拟人工点击。欢迎尝试。
-地址：https://github.com/xuess/puppeteer-sign
-
-
 2019年02月24日 
 近期发现使用此插件，会有官方冻结账号一周的风险，请请谨慎使用。
 
