@@ -14,7 +14,7 @@
   "author": "xuess <wuniu2010@126.com>",
   "license": "ISC",
   "dependencies": {
-    "ejs": "^2.6.1"
+    "ejs": "^3.1.7"
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
